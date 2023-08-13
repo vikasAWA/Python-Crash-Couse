@@ -1,2 +1,19 @@
 class Dog():
-    pass
+    """A simple attempt to model a dog."""
+    
+    def __init__(self, name, age):
+        """Initializing name and sge attributes."""
+        self.name = name 
+        self.age = age 
+        
+    def sit(self):
+        """Simulating a dog sitting in response to a command"""
+        print(self.name.title() + " is now sitting")
+        
+    def roll_over(self):
+        """Simulate rolling over in response to a command"""
+        print(self.name.title() + " is rolled over")
+        
+my_dog = Dog('zimmi', 13)
+print(f"My dog name is {my_dog.name.title()}.")
+print(f"My dog age is {my_dog.age} years old.")
