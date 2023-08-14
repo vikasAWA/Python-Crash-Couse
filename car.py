@@ -29,17 +29,57 @@ class Car():
         """Add the given amount to the odometer reading """
         self.odometer_reading += mileage
 
-my_new_car = Car('audi', 'a4', 2019)
-print(my_new_car.get_discriptive_name())
-#my_new_car.read_odometer()
-my_new_car.odometer_reading = 23
-my_new_car.read_odometer()
-my_new_car.update_odometer(14)
-my_new_car.read_odometer()
+class ElectricCar(Car):
+    """Represent aspects of car, specific to electric vehicles."""
+    def __init__(self, make, model, year):
+        """Initialize attributes of the parent class.
+        Then initialize attributes specific to an electric car."""
+        super().__init__(make, model, year)
+        self.battery = Battery()
+        
+        
+    def fill_gas_tank(self):
+        """Electric cars don't have gas tanks."""
+        print("this car does not have a gas tank!.")
+        
 
-my_used_car = Car('subaru', 'outback', 2013)
-print(my_used_car.get_discriptive_name())
-my_used_car.update_odometer(20334)
-my_used_car.read_odometer()
-my_used_car.increment_odometer(20000)
-my_used_car.read_odometer()
+class Battery():
+    """A simple step to model a battery for an electric car."""
+    
+    def __init__(self, battery_size = 70):
+        """Initializing battery attributes."""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """Print a statement describing battery size"""
+        print(f"This car has a {self.battery_size}-kwh battery")
+        
+    def get_range(self):
+        """Print a statementa about range this battery provides."""
+        if self.battery_size <= 70:
+            range = 240
+        elif self.battery_size >= 85:
+            range = 270
+        print(f"This car can go approximately {range} miles on a full charge.")
+        
+
+
+# my_new_car = Car('audi', 'a4', 2019)
+# print(my_new_car.get_discriptive_name())
+# #my_new_car.read_odometer()
+# # my_new_car.odometer_reading = 23
+# # my_new_car.read_odometer()
+# # my_new_car.update_odometer(14)
+# # my_new_car.read_odometer()
+
+# my_used_car = Car('subaru', 'outback', 2013)
+# print(my_used_car.get_discriptive_name())
+# my_used_car.update_odometer(20334)
+# my_used_car.read_odometer()
+# my_used_car.increment_odometer(20000)
+# my_used_car.read_odometer()
+my_electric_car = ElectricCar('tesla', 'model s', 2019)
+print(my_electric_car.get_discriptive_name())
+my_electric_car.fill_gas_tank()
+my_electric_car.battery.describe_battery()
+my_electric_car.battery.get_range()
