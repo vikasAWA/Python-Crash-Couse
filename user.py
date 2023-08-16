@@ -26,6 +26,25 @@ class User():
         """Reset the login attempts to 0"""
         self.login_attempts = 0
 
+class Admin(User):
+    def __init__(self, first_name, last_name, age, location, occupation, privilages):
+        super().__init__(first_name, last_name, age, location, occupation)
+        self.privilages = Privilages(privilages)
+    
+    
+            
+class Privilages():
+    def __init__(self, privilages):
+        self.privilages = privilages
+        
+    def show_privilages(self):
+        for privilage in self.privilages:
+            print(privilage)
+        
+             
+admin = Admin('jake', 'barier', 35, 'london', 'Admin', privilages=['can add a user', 'can delete a user', 'can delete post', 'can add post', 'can reset login attempts'])
+admin.privilages.show_privilages()
+
 """user_1 = User("john", 'doe', 20, 'newyork', 'software engineer')
 user_1.describe_user()
 user_1.greet_user()
@@ -34,12 +53,12 @@ user_2.describe_user()
 user_2.greet_user()
 """
 
-user = User("Ram", "jane", 23, "Delhi", "data analyst")
-user.describe_user()
-print(f"Login attempts: {user.login_attempts}")
-user.increment_login_attempts()
-print(f"Login attempts: {user.login_attempts}")
-user.increment_login_attempts()
-print(f"Login attempts: {user.login_attempts}")
-user.reset_login_attempts()
-print(f"Login attempts: {user.login_attempts}")
+# user = User("Ram", "jane", 23, "Delhi", "data analyst")
+# user.describe_user()
+# print(f"Login attempts: {user.login_attempts}")
+# user.increment_login_attempts()
+# print(f"Login attempts: {user.login_attempts}")
+# user.increment_login_attempts()
+# print(f"Login attempts: {user.login_attempts}")
+# user.reset_login_attempts()
+# print(f"Login attempts: {user.login_attempts}") 

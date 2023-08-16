@@ -23,22 +23,35 @@ class Restaurant():
         """Add the given number to the existing number number served"""
         if number >= 0:
             self.number_served += number
+            
+class IceCreamLand(Restaurant):
+    def __init__(self, restaurant_type, cuisine_type, flavors):
+        super().__init__(restaurant_type, cuisine_type)
+        self.flavors = flavors
         
-restaurant = Restaurant("Delhi food express", "North Indian food")
-#print(restaurant.restaurant_name)
-#print(restaurant.cuisine_type)
-restaurant.describe_restaurant()
-restaurant.open_restaurant()
+    def display_flavors(self):
+        for flavor in self.flavors:
+            print(flavor)
+flavors_list = ["Vanilla", "Chocolate", "Strawberry", "Mint Chip"]
+iceream = IceCreamLand('Dessert Express', 'ice-creams', flavors_list)
+iceream.describe_restaurant()
+iceream.display_flavors()
+        
+# restaurant = Restaurant("Delhi food express", "North Indian food")
+# #print(restaurant.restaurant_name)
+# #print(restaurant.cuisine_type)
+# restaurant.describe_restaurant()
+# restaurant.open_restaurant()
 
 """restaurant_1 = Restaurant("Chennai Foods", "South indian")
 restaurant_2 = Restaurant("Punjabi Dhaba", "north Indian")
 restaurant_1.describe_restaurant()
 restaurant_2.describe_restaurant()"""
 
-print(f"Number of Customer Served : {restaurant.number_served}")
-restaurant.number_served = 10
-print(f"Number of Customer Served : {restaurant.number_served}")
-restaurant.set_number_served(20)
-print(f"Number of Customer Served : {restaurant.number_served}")
-restaurant.increment_number_served(5)
-print(f"Number of Customer Served : {restaurant.number_served}")
+# print(f"Number of Customer Served : {restaurant.number_served}")
+# restaurant.number_served = 10
+# print(f"Number of Customer Served : {restaurant.number_served}")
+# restaurant.set_number_served(20)
+# print(f"Number of Customer Served : {restaurant.number_served}")
+# restaurant.increment_number_served(5)
+# print(f"Number of Customer Served : {restaurant.number_served}")
