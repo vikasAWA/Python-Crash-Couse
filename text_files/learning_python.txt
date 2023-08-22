@@ -1,0 +1,4 @@
+In Python you can handle files.
+In Python you can simulte real world situation using object oriented programming. 
+In Python you can us different data structures like dictionaries, list , tuples, set etc to stor your data.
+In Python you can import modules that can help to make programme shorter. 
