@@ -1,5 +1,7 @@
-def get_formatted_name(first, last):
+def get_formatted_name(first, last, middle=''):
     """Get neatly formstted full name"""
-    return f"{first} {last}".title()
+    if middle:
+        return f"{first} {middle} {last}".title()
+    else:
+        return f"{first} {last}".title()
 
-print(get_formatted_name('vikas', 'awasthi'))
